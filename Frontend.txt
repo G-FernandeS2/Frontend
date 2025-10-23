@@ -1,0 +1,145 @@
+/* ========================================= */
+/* === RESPONSIVIDADE E BREAKPOINTS      === */
+/* ========================================= */
+
+/* --- Breakpoint 1: Telas Extra-Grandes (XL) --- */
+/* (Telas um pouco menores que nosso container máximo) */
+@media (max-width: 1200px) {
+  /* O container fica mais próximo das bordas */
+  .container {
+    width: 95%; 
+  }
+}
+
+
+/* --- Breakpoint 2: Telas Grandes (LG) --- */
+/* (Tablets em modo paisagem e desktops pequenos) */
+@media (max-width: 992px) {
+  
+  /* --- Grid (Cards) --- */
+  /* Em vez de 3 colunas (.col-4), queremos 2 colunas (.col-6) */
+  .grid-12 .col-4 {
+    grid-column: span 6;
+  }
+  
+  /* --- Grid (Formulário) --- */
+  /* O formulário (.col-8) e o aside (.col-4) devem empilhar */
+  .grid-12 .col-8,
+  .grid-12 .col-4 {
+    grid-column: span 12;
+  }
+  
+  /* O aside (informações de contato) precisa de uma margem superior */
+  .contact-form + aside {
+    margin-top: var(--spacing-l);
+  }
+
+  /* (Regras da Navegação Mobile que já fizemos) */
+  .nav-container { flex-wrap: wrap; }
+  .nav-toggle { display: block; }
+  .nav-menu {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    margin-top: var(--spacing-s);
+  }
+  .main-nav.is-active .nav-menu { display: flex; }
+  .nav-menu li { margin: 0; width: 100%; text-align: center; border-bottom: 1px solid var(--color-neutral-light); }
+  .nav-menu a { display: block; width: 100%; padding: var(--spacing-s); }
+  .dropdown-menu { position: static; display: block; box-shadow: none; border-radius: 0; min-width: 100%; padding: 0; background-color: #fcfcfc; }
+  .dropdown-menu a { padding-left: var(--spacing-l); color: var(--color-neutral-medium); font-weight: var(--font-weight-regular); font-size: var(--font-size-s); }
+  .nav-button-donate { margin: var(--spacing-s) var(--spacing-m); }
+}
+
+
+/* --- Breakpoint 3: Telas Médias (MD) --- */
+/* (Tablets em modo retrato) */
+@media (max-width: 768px) {
+
+  /* --- Grid (Cards) --- */
+  /* Agora queremos 1 coluna para os cards */
+  .grid-12 .col-4, /* Regra do desktop */
+  .grid-12 .col-6  /* Regra do breakpoint anterior */ {
+    grid-column: span 12;
+  }
+
+  /* --- Layout Geral --- */
+  /* Diminui os paddings principais */
+  .site-content,
+  .site-footer {
+    padding: var(--spacing-m) 0;
+  }
+  
+  /* --- Tipografia --- */
+  /* Diminui os títulos principais */
+  h1, .logo {
+    font-size: var(--font-size-l); /* De 36px para 24px */
+  }
+  h2, .modal-title {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+
+/* --- Breakpoint 4: Telas Pequenas (SM) --- */
+/* (Celulares em modo paisagem) */
+@media (max-width: 576px) {
+
+  /* --- Layout Geral --- */
+  .container {
+    width: 90%;
+  }
+
+  /* --- Tipografia --- */
+  /* Define 100% da fonte base para o HTML, 
+     para garantir consistência */
+  html {
+    font-size: 100%; /* 16px */
+  }
+
+  /* --- Componentes (Botões) --- */
+  /* Botões ocupam 100% da largura para facilitar o toque */
+  .btn, .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+  /* Botões no rodapé do modal não precisam de 100% */
+  .modal-footer .btn {
+    width: auto;
+  }
+  
+  /* --- Componentes (Modal) --- */
+  /* Modal fica mais próximo das bordas */
+  .modal-backdrop {
+    padding: var(--spacing-s);
+  }
+  .modal-dialog {
+    max-width: 100%;
+  }
+  .modal-footer {
+    flex-direction: column-reverse; /* Empilha os botões (Primário em cima) */
+    gap: var(--spacing-xs);
+  }
+  .modal-footer .btn {
+    width: 100%;
+  }
+}
+
+
+/* --- Breakpoint 5: Telas Extra-Pequenas (XS) --- */
+/* (Celulares em modo retrato) */
+@media (max-width: 480px) {
+
+  /* --- Sistema de Espaçamento --- */
+  /* Reduz o espaçamento do grid para economizar espaço */
+  .grid-12 {
+    gap: var(--spacing-s); /* De 24px para 16px */
+  }
+
+  /* --- Componentes (Formulário) --- */
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    padding: var(--spacing-s); /* 16px (mantém fácil de tocar) */
+  }
+}
