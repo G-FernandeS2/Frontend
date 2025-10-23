@@ -1,0 +1,52 @@
+/* ========================================= */
+/* === ADIÇÕES JS (Validação e Helpers)  === */
+/* ========================================= */
+
+/* Helper para esconder elementos via JS */
+.hidden {
+  display: none !important;
+}
+
+/* Estilos de validação de formulário (Etapa 4) */
+.form-group .error-message {
+  display: none; /* Escondido por padrão */
+  color: var(--color-validation-error);
+  font-size: var(--font-size-s);
+  margin-top: var(--spacing-xs);
+}
+
+/* Classe .is-invalid adicionada via JS */
+.form-group input.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: var(--color-validation-error);
+}
+
+.form-group input.is-invalid + .error-message,
+.form-group textarea.is-invalid + .error-message {
+  display: block; /* Mostra a mensagem de erro */
+}
+
+/* Estado de loading do botão */
+.btn.is-loading {
+  position: relative;
+  color: transparent !important; /* Esconde o texto */
+  cursor: wait;
+}
+.btn.is-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255,255,255,0.5);
+  border-top-color: var(--color-neutral-white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

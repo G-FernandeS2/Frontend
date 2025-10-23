@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="site-wrapper">
+
+        <header class="site-header">
+            <div class="container nav-container">
+                <a href="#/" class="logo">PlataformaONGs</a> <nav class="main-nav" id="main-nav-menu">
+                    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav-menu">
+                        &#9776;
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="#/">Início</a></li>
+                        <li><a href="#/sobre">Sobre Nós</a></li> 
+                        <li class="has-dropdown">
+                            <a href="#/projetos">Projetos</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/projetos/educacao">Educação</a></li>
+                                <li><a href="#/projetos/saude">Saúde</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#/voluntarios">Seja Voluntário</a></li>
+                        <li><a href="#/contato">Contato</a></li>
+                        <li><a href="#/doar" class="nav-button-donate">Doar</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="site-content" id="app-root">
+            </main>
+
+        <footer class="site-footer">
+            <div class="container">Rodapé (Links, Copyright)</div>
+        </footer>
+
+    </div> <div class="modal-backdrop" id="meu-modal">
+      </div>
+
+
+    <script src="views.js"></script>
+    <script src="formValidation.js"></script>
+    <script src="app.js"></script> </body>
+</html>
